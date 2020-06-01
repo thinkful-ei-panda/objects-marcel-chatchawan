@@ -54,19 +54,36 @@ userArray.forEach(user =>
     console.log(`${user.jobTitle} ${user.name} reports to ${user.boss}.`));
 
 // 6. Cracking the code. 'craft block argon meter bells brown croon droop'
+
+
+let input = 'craft block argon meter bells brown croon droop'
+
+let newInput = 'c00y c00e c00s'
+
+let oneWord = 'craft'
+
 let cipher = {
       a: 2,
       b: 3,
       c: 4,
       d: 5,
 };
-let decode = word => {
-  let l = 'that';
-    l = word.charAt(0)[cipher];
-    console.log(l);
-}; 
-console.log(decode('cat'));
+console.log()
+let decoder = word => {
+    if(cipher[word.charAt(0)] === undefined) {
+        return ' '
+    }
+    else {
+       return  word.charAt(cipher[word.charAt(0)] - 1)
+    }
+}
+let decodeWords = input =>{
+   let result = input.split(' ').map(word => decoder(word))
+      return result.join('')
+    }
 
+    console.log(decoder(oneWord))
+    
 // 7. Factory Functions with LOTR
 
 function createCharacter(name, nickname, race, origin, attack, defense) {
@@ -93,7 +110,7 @@ let characters = []
 
 let character1 = createCharacter('Gandalf the White', 'gandalf', 'Wizard','Middle Earth', 10, 6)
 let character2 = createCharacter('Bilbo Baggins', 'bilbo', 'Halfling','The Shire', 2, 1)
-let character2 = createCharacter('Frodo Baggins', 'frodo', 'Halfling','The Shitre', 2, 1)
+let character3 = createCharacter('Frodo Baggins', 'frodo', 'Halfling','The Shitre', 2, 1)
 
 console.log(character2.evaluateFight(character1))
 
