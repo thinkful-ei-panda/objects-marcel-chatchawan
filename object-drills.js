@@ -4,7 +4,7 @@ let loaf = {
     flour: 300,
     water: 210,
     hydration: function() {
-        this.water / this.flour * 100;
+        return this.water / this.flour * 100;
     }
 };
 
@@ -20,7 +20,7 @@ const strangeObj = {
     spam: 'maps' };
 
 for (const property in strangeObj) {
-   console.log(` The ${property} is ${property.value}`);
+   console.log(`The ${property} is ${strangeObj[property]}`);
 }
 
 // 3. Arrays in objects
@@ -93,7 +93,7 @@ let characters = []
 
 let character1 = createCharacter('Gandalf the White', 'gandalf', 'Wizard','Middle Earth', 10, 6)
 let character2 = createCharacter('Bilbo Baggins', 'bilbo', 'Halfling','The Shire', 2, 1)
-let character2 = createCharacter('Frodo Baggins', 'frodo', 'Halfling','The Shitre', 2, 1)
+let character3 = createCharacter('Frodo Baggins', 'frodo', 'Halfling','The Shitre', 2, 1)
 
 console.log(character2.evaluateFight(character1))
 
