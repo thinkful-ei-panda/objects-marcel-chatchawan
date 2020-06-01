@@ -88,4 +88,4 @@ function createCharacter(name, nickname, race, origin, attack, defense) {
     }
 }
 
-let characters = []
+let characters = []test append 1
