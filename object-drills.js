@@ -82,12 +82,14 @@ function createCharacter(name, nickname, race, origin, attack, defense) {
       let damageToEnemy = 0;
       let damageToSelf = 0;
       if (enemy.defense > this.attack) {
-        console.log(`Enemy defense is ${enemy.defense}, your attack is ${this.attack}`)
+        console.log(`Enemy defense is ${enemy.defense}, your attack is ${this.attack}, difference is ${enemy.defense-this.attack}`)
         let damageToEnemy = enemy.defense - this.attack;
+        console.log(damageToEnemy)
       }
       if (this.defense > enemy.attack) {
-        console.log(`Your defense is ${this.defense}, enemy attack is ${enemy.attack}`)
+        console.log(`Your defense is ${this.defense}, enemy attack is ${enemy.attack}, difference is ${this.defense-enemy.attack}`)
         let damageToSelf = this.defense - enemy.attack;
+        console.log(damageToSelf)
       }
       return `Your opponent takes ${damageToEnemy} damage and you receive ${damageToSelf} damage`;
     }
