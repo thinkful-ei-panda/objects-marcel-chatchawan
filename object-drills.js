@@ -89,7 +89,7 @@ function createCharacter(name, nickname, race, origin, attack, defense) {
 }
 
 let character1 = createCharacter('Gandalf the White', 'gandalf', 'Wizard','Middle Earth', 10, 6)
-let character2 = createCharacter('Bilbo Baggins', 'bilbo', 'Halfling','The Shitre', 2, 1)
-
+let character2 = createCharacter('Bilbo Baggins', 'bilbo', 'Halfling','The Shire', 2, 1)
+let character2 = createCharacter('Frodo Baggins', 'frodo', 'Halfling','The Shitre', 2, 1)
 
 console.log(character2.evaluateFight(character1))
