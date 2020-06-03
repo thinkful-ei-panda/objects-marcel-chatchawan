@@ -86,7 +86,7 @@ let decodeWords = input =>{
 
 console.log(decodeWords(input));
 
-// 7. Factory Functions with LOTR
+7. Factory Functions with LOTR
 
 function createCharacter(name, nickname, race, origin, attack, defense) {
   return {
@@ -98,26 +98,27 @@ function createCharacter(name, nickname, race, origin, attack, defense) {
     evaluateFight: function(enemy) {
       let damageToEnemy = 0;
       let damageToSelf = 0;
-      if (enemy.defense < this.attack) { // gand 6 < bilb 2
+      if (enemy.defense < this.attack) { // bilb 1 < gand 10
         damageToEnemy = enemy.defense - this.attack;
+        console.log(enemy.defense-this.attack);
       }
-      if (this.defense < enemy.attack) { // bilb 1 < gand 10
+      if (this.defense < enemy.attack) { // gand 6 > bilb 2
         damageToSelf = this.defense - enemy.attack;
+        console.log(this.defense-enemy.attack);
       }
-      return `Your opponent takes ${damageToEnemy} damage and you receive ${damageToSelf} damage`;
+      return `${enemy.name} takes ${damageToEnemy} damage and ${this.name} receives ${damageToSelf} damage`;
     }
   };
 }
   
 let charArr = [
-  ('Gandalf the White', 'gandalf', 'Wizard','Middle Earth', 10, 6),
-  ('Bilbo Baggins', 'bilbo', 'Halfling','The Shire', 2, 1),
-  ('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2),
-  ('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8),
-  ('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5)
+  new createCharacter('Gandalf the White', 'gandalf', 'Wizard','Middle Earth', 10, 6),
+  new createCharacter('Bilbo Baggins', 'bilbo', 'Halfling','The Shire', 2, 1),
+  new createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2),
+  new createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8),
+  new createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5)
 ];
 
-let charObjArr = charArr.map(createCharacter())
-
-console.log(charObjArr)
-
+charArr.push(createCharacter('Arwen Undomiel', 'arwen', 'half-elf', 'Rivendell', 6, 4))
+charArr.find(char => char.nickname === 'aragorn')
+console.log(charArr[1].evaluateFight(charArr[0]))
