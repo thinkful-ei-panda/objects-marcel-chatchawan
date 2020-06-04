@@ -21,7 +21,7 @@ const strangeObj = {
   spam: 'maps' };
 
 for (const property in strangeObj) {
-  console.log(` The ${property} is ${property.value}`);
+  console.log(`The ${property} is ${property.value}`);
 }
 
 // 3. Arrays in objects
@@ -86,7 +86,7 @@ let decodeWords = input =>{
 
 console.log(decodeWords(input));
 
-7. Factory Functions with LOTR
+// 7. Factory Functions with LOTR
 
 function createCharacter(name, nickname, race, origin, attack, defense) {
   return {
@@ -119,6 +119,60 @@ let charArr = [
   new createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5)
 ];
 
-charArr.push(createCharacter('Arwen Undomiel', 'arwen', 'half-elf', 'Rivendell', 6, 4))
-charArr.find(char => char.nickname === 'aragorn')
-console.log(charArr[1].evaluateFight(charArr[0]))
+charArr.push(createCharacter('Arwen Undomiel', 'arwen', 'half-elf', 'Rivendell', 6, 4));
+charArr.find(char => char.nickname === 'aragorn');
+console.log(charArr[1].evaluateFight(charArr[0]));
+
+// 8.
+
+const HEROES = [
+  { id: 1, name: 'Captain America', squad: 'Avengers' },
+  { id: 2, name: 'Iron Man', squad: 'Avengers' },
+  { id: 3, name: 'Spiderman', squad: 'Avengers' },
+  { id: 4, name: 'Superman', squad: 'Justice League' },
+  { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+  { id: 6, name: 'Aquaman', squad: 'Justice League' },
+  { id: 6, name: 'Hulk', squad: 'Avengers' },
+];
+// Write a function findOne() that takes in the following two arguments:
+
+// arr - array of Heroes objects to search through
+// query - object with one or more key/value pairs that must exactly match the target Hero
+// The first matching result should be returned even if multiple match. If a match isn't found, return null
+
+// let findOne = (arr, searchObj) => {
+//   // first, arr.forEach(heroObj) to loop through the heros 
+//   let searchKeysArr = [];
+//   let heroKeysArr = [];
+//   for (let g = 0; g < arr.length; g++) {
+//     heroObj = arr[g];
+//     heroKeysArr = Object.keys(heroObj);
+//     searchKeysArr = Object.keys(searchObj);
+    
+//     heroKeysArr = [];
+//     searchKeysArr = [];
+//   }
+
+function filter(obj1, obj2) {
+  var result = {};
+  for(let key in obj1) {
+    if(obj2[key] != obj1[key]) result[key] = obj2[key];
+    if(typeof obj2[key] === 'array' && typeof obj1[key] === 'array') 
+      result[key] = arguments.callee(obj1[key], obj2[key]);
+    if(typeof obj2[key] === 'object' && typeof obj1[key] === 'object') 
+      result[key] = arguments.callee(obj1[key], obj2[key]);
+  }
+  console.log(result)
+  return result;
+  }
+
+filter({ id: 6, squad: 'Avengers' },{ id: 6, name: 'Hulk', squad: 'Avengers' })
+
+// second each object at a time
+// third look at each key with Object.keys as an array
+// fourth, save the array as a variable = heroKeysArr
+// fifth, do that again ^  , using search object, which gives another array (searchKeysArr)
+// sixth, make 2 for loop to iterate through heroKeysArr & searchKeysArr at the same time
+// seven, if (statement) an index of heroKeysArr matches searchKeysArr, compare heroObj.heroKeysArr[i] (which should be id) to searchObj.searchKeysArr[i] if it evaluates to true, then we go into second level  
+
+// console.log(findOne(HEROES, { id: 6, squad: 'Avengers' }));
