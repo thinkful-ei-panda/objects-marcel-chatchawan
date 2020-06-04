@@ -34,18 +34,18 @@ console.log(food['meals'][3]);
 // 4. Arrays of objects
 
 const obj1 = {name: 'Bob Vance',
-jobTitle: 'Owner', boss: ''};
+jobTitle: 'Owner', boss: undefined};
 const obj2 = {name: 'Scruffy Scruffington',
-jobTitle: 'Janitor', boss: obj1};
+jobTitle: 'Janitor', boss: obj1.name};
 const obj3 = {name: 'Marcel',
-jobTitle: 'Lead Developer', boss: obj1};
+jobTitle: 'Lead Developer', boss: obj1.name};
 const obj4 = {name: 'Chatchawan', 
-jobTitle: 'Assistant to the Lead Developer', boss: obj3};
+jobTitle: 'Assistant to the Lead Developer', boss: obj3.name};
 
 let userArray = [obj1, obj2, obj3, obj4];
 
 userArray.forEach(user =>
-    console.log(`This is ${user.name}, their job title is ${user.jobTitle}`)
+console.log(`${user.name} is ${user.jobTitle}`)
 );
 
 // 5. Properties that aren't there
