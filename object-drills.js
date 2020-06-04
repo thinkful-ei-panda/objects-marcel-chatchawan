@@ -45,7 +45,7 @@ jobTitle: 'Assistant to the Lead Developer', boss: obj3.name};
 let userArray = [obj1, obj2, obj3, obj4];
 
 userArray.forEach(user =>
-console.log(`${user.name} is ${user.jobTitle}`)
+    console.log(`This is ${user.name}, their job title is ${user.jobTitle}`)
 );
 
 // 5. Properties that aren't there
@@ -54,13 +54,6 @@ userArray.forEach(user =>
     console.log(`${user.jobTitle} ${user.name} reports to ${user.boss}.`));
 
 // 6. Cracking the code. 'craft block argon meter bells brown croon droop'
-
-
-let input = 'craft block argon meter bells brown croon droop'
-
-let newInput = 'c00y c00e c00s'
-
-let oneWord = 'craft'
 
 let cipher = {
       a: 2,
