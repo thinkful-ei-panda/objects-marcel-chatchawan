@@ -82,8 +82,9 @@ let decodeWords = input =>{
       return result.join('')
     }
 
-    console.log(decoder(oneWord))
-    
+console.log(decoder(oneWord))
+console.log(decodeWords(input))
+
 // 7. Factory Functions with LOTR
 
 function createCharacter(name, nickname, race, origin, attack, defense) {
@@ -94,11 +95,13 @@ function createCharacter(name, nickname, race, origin, attack, defense) {
         attack,
         defense,
         evaluateFight: function(enemy) {
+            let damageToSelf;
+            let damageToEnemy;
             if (enemy.defense > this.attack) {
-                let damageToEnemy = enemy.defense - this.attack;
+                damageToEnemy = enemy.defense - this.attack;
             }
             if (this.defense > enemy.attack) {
-                let damageToSelf = this.defense - enemy.attack;
+                damageToSelf = this.defense - enemy.attack;
             }
             return `Your opponent takes ${damageToEnemy} damage and you receive ${damageToSelf} damage`;
         }
@@ -113,4 +116,57 @@ let character2 = createCharacter('Bilbo Baggins', 'bilbo', 'Halfling','The Shire
 let character3 = createCharacter('Frodo Baggins', 'frodo', 'Halfling','The Shitre', 2, 1)
 
 console.log(character2.evaluateFight(character1))
+
+// 8
+
+const HEROES = [
+    { id: 1, name: 'Captain America', squad: 'Avengers' },
+    { id: 2, name: 'Iron Man', squad: 'Avengers' },
+    { id: 3, name: 'Spiderman', squad: 'Avengers' },
+    { id: 4, name: 'Superman', squad: 'Justice League' },
+    { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+    { id: 6, name: 'Aquaman', squad: 'Avengers' },
+    { id: 6, name: 'Hulk', squad: 'Justice League' },
+  ];
+  // Write a function findOne() that takes in the following two arguments:
+  
+  // arr - array of Heroes objects to search through
+  // query - object with one or more key/value pairs that must exactly match the target Hero
+  // The first matching result should be returned even if multiple match. If a match isn't found, return null
+  
+  let findOne = (arr, searchObj) => {
+    
+    let searchKeysArr = []
+    let heroKeysArr = []
+    for (let g = 0; g < arr.length; g++) {
+        let heroObj = arr[g];
+        heroKeysArr = Object.keys(heroObj)
+        // console.log(heroKeysArr)
+        searchKeysArr = Object.keys(searchObj)
+        // console.log(searchKeysArr)
+       for (let searchKey of searchKeysArr) {
+        for (let heroKey of heroKeysArr) {
+          let matchedKey
+          if (searchKey === heroKey) {
+            matchedKey = searchKey
+          }
+          // console.log(matchedKey)
+          if (searchObj[matchedKey] === heroObj[matchedKey]) {
+            return heroObj
+          }
+          }        
+          
+        }
+       
+      searchKeysArr = []
+      heroKeysArr = []
+    }
+  }
+  
+   
+  
+  console.log(findOne(HEROES, { id: 6, squad: 'Justice League' }))
+  
+  
+   
 
