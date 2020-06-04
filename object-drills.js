@@ -78,39 +78,64 @@ let decodeWords = input =>{
 console.log(decodeWords(input))
 
 // 7. Factory Functions with LOTR
+  
+function createCharacter(name, nickname, race, origin, attack, defense, weapon) {
+  return {
+    name,
+    nickname,
+    race,
+    origin,
+    attack,
+    defense,
+    weapon,
+    //Each character should have the method describe which takes no parameters and prints out the string: "{name} is a {race} from {origin}."
+    describe: function() {
+      console.log(`${name} is a ${race} from ${origin}, weilding ${weapon}`);
+    },
 
-function createCharacter(name, nickname, race, origin, attack, defense) {
-    return {
-        name,
-        nickname,
-        origin,
-        attack,
-        defense,
-        evaluateFight: function(enemy) {
-            let damageToSelf;
-            let damageToEnemy;
-            if (enemy.defense > this.attack) {
-                damageToEnemy = enemy.defense - this.attack;
-            }
-            if (this.defense > enemy.attack) {
-                damageToSelf = this.defense - enemy.attack;
-            }
-            return `Your opponent takes ${damageToEnemy} damage and you receive ${damageToSelf} damage`;
-        }
-    };
+    //Each character should also have a method called evaluateFight that takes in a character object and returns the following string: "Your opponent takes {x} damage and you receive {y} damage" where x and y are the differences between each characters attack and defense values. If defense exceeds attack, then take zero damage.
+    evaluateFight: function(enemy) {
+      let damageToEnemy = 0;
+      let damageToSelf = 0;
+      if (enemy.defense < this.attack) { // bilb 1 < gand 10
+        damageToEnemy = enemy.defense - this.attack;
+      }
+      if (this.defense < enemy.attack) { // gand 6 > bilb 2
+        damageToSelf = this.defense - enemy.attack;
+      }
+      return `${enemy.name} takes ${damageToEnemy} damage and ${this.name} receives ${damageToSelf} damage`;
+    }
+  };
 }
+//Using array literal syntax, create an array characters that calls your factory function for each character in the table above with the relevant parameters. Your characters array should now have 5 objects in it.    
+let charArr = [
+  new createCharacter('Gandalf the White', 'gandalf', 'Wizard','Middle Earth', 10, 6, 'a simple wooden staff'),
+  new createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit','The Shire', 2, 1, 'evil eyes'),
+  new createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2, 'Sting'),
+  new createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8, 'Anduril'),
+  new createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5, 'Cúthalion o Galadriel')
+];
+  
+// Add a new character to characters (make up any attributes not provided):
+//Arwen Undomiel is a Half-Elf of Rivendell
+charArr.push(createCharacter('Arwen Undomiel', 'arwen', 'half-elf', 'Rivendell', 6, 4, 'Hadhafang'));
+ 
+//Using the .find() function, retrieve your character nicknamed aragorn from characters and then call his describe method.
+charArr.find(char => char.nickname === 'aragorn').describe();
 
+//Using the .filter() function, create a new array from characters that ONLY contains characters of the race Hobbit.
+let hobbitArr = charArr.filter(search => search.race === 'Hobbit');
+for (let ind in hobbitArr) {
+  console.log(hobbitArr[ind]);
+};
 
-let characters = []
+console.log(charArr[1].evaluateFight(charArr[0]));
 
-let character1 = createCharacter('Gandalf the White', 'gandalf', 'Wizard','Middle Earth', 10, 6)
-let character2 = createCharacter('Bilbo Baggins', 'bilbo', 'Halfling','The Shire', 2, 1)
-let character3 = createCharacter('Frodo Baggins', 'frodo', 'Halfling','The Shitre', 2, 1)
-
-console.log(character2.evaluateFight(character1))
-
+for (let ind in charArr) {
+  charArr[ind].describe();
+};
 // 8
-
+/*
 const HEROES = [
     { id: 1, name: 'Captain America', squad: 'Avengers' },
     { id: 2, name: 'Iron Man', squad: 'Avengers' },
@@ -158,7 +183,7 @@ const HEROES = [
    
   
   console.log(findOne(HEROES, { id: 6, squad: 'Justice League' }))
-  
+  */
   
    
 
