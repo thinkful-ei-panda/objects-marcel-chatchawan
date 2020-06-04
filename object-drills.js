@@ -1,11 +1,11 @@
 // 1. Object initializers and methods
 
 let loaf = {
-    flour: 300,
-    water: 210,
-    hydration: function() {
-        this.water / this.flour * 100;
-    }
+  flour: 300,
+  water: 210,
+  hydration: function() {
+    return `Hydration level is ${this.water / this.flour * 100}%`;
+  }
 };
 
 console.log(loaf.hydration());
@@ -13,23 +13,23 @@ console.log(loaf.hydration());
 // 2. Iterating over an object's properties
 
 const strangeObj = {
-    foo: 'oof', 
-    bar: 'rab', 
-    fum: 'muf', 
-    quux: 'xuuq', 
-    spam: 'maps' };
+  foo: 'oof', 
+  bar: 'rab', 
+  fum: 'muf', 
+  quux: 'xuuq', 
+  spam: 'maps' };
 
 for (const property in strangeObj) {
-   console.log(` The ${property} is ${property.value}`);
+ console.log(` The ${property} is ${strangeObj[property]}`);
 }
 
 // 3. Arrays in objects
 
 let food = {
-    meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
+  meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
 };
 
-console.log(food['meals'][3]);
+console.log(`A Hobbit's fourth meal of the day is ${food['meals'][3]}!`);
 
 // 4. Arrays of objects
 
