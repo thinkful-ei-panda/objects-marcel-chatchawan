@@ -54,6 +54,7 @@ userArray.forEach(user =>
     console.log(`${user.jobTitle} ${user.name} reports to ${user.boss}.`));
 
 // 6. Cracking the code. 'craft block argon meter bells brown croon droop'
+let input = 'craft block argon meter bells brown croon droop'
 
 let cipher = {
       a: 2,
@@ -61,7 +62,7 @@ let cipher = {
       c: 4,
       d: 5,
 };
-console.log()
+
 let decoder = word => {
     if(cipher[word.charAt(0)] === undefined) {
         return ' '
@@ -74,8 +75,6 @@ let decodeWords = input =>{
    let result = input.split(' ').map(word => decoder(word))
       return result.join('')
     }
-
-console.log(decoder(oneWord))
 console.log(decodeWords(input))
 
 // 7. Factory Functions with LOTR
