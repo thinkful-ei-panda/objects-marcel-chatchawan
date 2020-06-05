@@ -135,55 +135,51 @@ for (let ind in charArr) {
   charArr[ind].describe();
 };
 // 8
-/*
-const HEROES = [
-    { id: 1, name: 'Captain America', squad: 'Avengers' },
-    { id: 2, name: 'Iron Man', squad: 'Avengers' },
-    { id: 3, name: 'Spiderman', squad: 'Avengers' },
-    { id: 4, name: 'Superman', squad: 'Justice League' },
-    { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
-    { id: 6, name: 'Aquaman', squad: 'Avengers' },
-    { id: 6, name: 'Hulk', squad: 'Justice League' },
-  ];
-  // Write a function findOne() that takes in the following two arguments:
-  
-  // arr - array of Heroes objects to search through
-  // query - object with one or more key/value pairs that must exactly match the target Hero
-  // The first matching result should be returned even if multiple match. If a match isn't found, return null
-  
-  let findOne = (arr, searchObj) => {
-    
-    let searchKeysArr = []
-    let heroKeysArr = []
-    for (let g = 0; g < arr.length; g++) {
-        let heroObj = arr[g];
-        heroKeysArr = Object.keys(heroObj)
-        // console.log(heroKeysArr)
-        searchKeysArr = Object.keys(searchObj)
-        // console.log(searchKeysArr)
-       for (let searchKey of searchKeysArr) {
-        for (let heroKey of heroKeysArr) {
-          let matchedKey
-          if (searchKey === heroKey) {
-            matchedKey = searchKey
-          }
-          // console.log(matchedKey)
-          if (searchObj[matchedKey] === heroObj[matchedKey]) {
-            return heroObj
-          }
-          }        
-          
-        }
-       
-      searchKeysArr = []
-      heroKeysArr = []
-    }
-  }
-  
-   
-  
-  console.log(findOne(HEROES, { id: 6, squad: 'Justice League' }))
-  */
-  
-   
 
+
+// const HEROES = [
+//     { id: 1, name: 'Captain America', squad: 'Avengers' },
+//     { id: 2, name: 'Iron Man', squad: 'Avengers' },
+//     { id: 3, name: 'Spiderman', squad: 'Avengers' },
+//     { id: 4, name: 'Superman', squad: 'Justice League' },
+//     { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+//     { id: 6, name: 'Aquaman', squad: 'Avengers' },
+//     { id: 6, name: 'Hulk', squad: 'Justice League' },
+//   ];
+//   // Write a function findOne() that takes in the following two arguments:
+
+//   // arr - array of Heroes objects to search through
+//   // query - object with one or more key/value pairs that must exactly match the target Hero
+//   // The first matching result should be returned even if multiple match. If a match isn't found, return null
+  
+//   let findOne = (arr, searchObj) => {
+    
+//     let searchKeysArr = []
+//     let heroKeysArr = []
+//     for (let g = 0; g < arr.length; g++) {
+//         let heroObj = arr[g];
+//         heroKeysArr = Object.keys(heroObj)
+//         // console.log(heroKeysArr)
+//         searchKeysArr = Object.keys(searchObj)
+//         // console.log(searchKeysArr)
+//        for (let searchKey of searchKeysArr) {
+//         for (let heroKey of heroKeysArr) {
+//           let matchedKey
+//           if (searchKey === heroKey) {
+//             matchedKey = searchKey
+//           }
+//           // console.log(matchedKey)
+//           if (searchObj[matchedKey] === heroObj[matchedKey]) {
+//             return heroObj
+//           }
+//           }        
+          
+//         }
+       
+//       searchKeysArr = []
+//       heroKeysArr = []
+//     }
+//   }
+  
+//   console.log(findOne(HEROES, { id: 6, squad: 'Justice League' }))
+  
